@@ -26,7 +26,22 @@ public class EndNthNode {
 			head=head.next;
 		}
 		System.out.println(head.data);
-		
+	}
+	
+	static void nthNodefromEndTwoPointerRef(Node head, int n) {
+		if(head == null) return;
+		Node first = head;
+		Node second = head;
+		int i;
+		for(i=0;i<n;i++) {
+			if(first == null) return;
+			first=first.next;
+		}
+		while(first!=null){
+			second=second.next;
+			first=first.next;
+		}
+		System.out.println(second.data+" ");
 	}
 	
 	static Node insertAtEnd(Node head, int data) {
@@ -62,6 +77,7 @@ public class EndNthNode {
 		head = insertAtEnd(head,33);
 		printData(head);
 		nthNodefromEnd(head,5);
+		nthNodefromEndTwoPointerRef(head,3);
 	}
 
 }
